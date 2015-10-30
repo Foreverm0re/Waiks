@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,10 +16,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import pitsoker.waiks.R;
+
 /**
  * Created by Pitsoker on 21/09/2015.
  */
-public class WaiksAdress extends AppCompatActivity implements ActionBar.TabListener, View.OnKeyListener, View.OnClickListener{
+public class WaiksAdress extends AppCompatActivity implements ActionBar.TabListener, View.OnClickListener{
     Button voiture;
     Button metro;
     Button pied;
@@ -105,21 +107,6 @@ public class WaiksAdress extends AppCompatActivity implements ActionBar.TabListe
                 startActivity(activiteSuivante);
                 break;
         }
-    }
-
-
-    @Override
-    public boolean onKey(View v, int keyCode, KeyEvent event) {
-        // On récupère la position du début de la sélection dans le texte
-        int cursorIndex = saisie.getSelectionStart();
-        // Ne réagir qu'à l'appui sur une touche (et pas au relâchement)
-        if(event.getAction() == 0)
-            // S'il s'agit d'un appui sur la touche « entrée »
-            if(keyCode == 66)
-                // On insère une balise de retour à la ligne
-                saisie.getText().insert(cursorIndex, "<br />");
-
-        return true;
     }
 
     @Override

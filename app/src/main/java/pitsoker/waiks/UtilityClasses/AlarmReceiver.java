@@ -1,21 +1,16 @@
-package pitsoker.waiks;
+package pitsoker.waiks.UtilityClasses;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.support.v4.content.WakefulBroadcastReceiver;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
- * Created by Pitsoker on 07/10/2015.
+ * Alarm creator class
  */
 public class AlarmReceiver extends WakefulBroadcastReceiver{
     private AlarmManager alarmMgr;
@@ -23,6 +18,8 @@ public class AlarmReceiver extends WakefulBroadcastReceiver{
     private int hour;
     private int minute;
 
+
+    // when the alarm intent is received
     @Override
     public void onReceive(Context context, Intent intent) {
         Intent service = new Intent(context, SchedulingService.class);

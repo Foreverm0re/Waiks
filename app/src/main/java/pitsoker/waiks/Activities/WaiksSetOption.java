@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.Activities;
 
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -15,6 +15,9 @@ import android.widget.TimePicker;
 
 
 import java.util.Calendar;
+
+import pitsoker.waiks.DataBases.Data;
+import pitsoker.waiks.R;
 
 
 /**

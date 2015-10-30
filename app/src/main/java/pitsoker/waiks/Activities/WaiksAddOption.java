@@ -1,6 +1,5 @@
-package pitsoker.waiks;
+package pitsoker.waiks.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -11,6 +10,11 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import pitsoker.waiks.DataBases.Data;
+import pitsoker.waiks.DataBases.ExtraOption;
+import pitsoker.waiks.DataBases.XoptionDAO;
+import pitsoker.waiks.R;
 
 /**
  * Created by Pitsoker on 25/09/2015.

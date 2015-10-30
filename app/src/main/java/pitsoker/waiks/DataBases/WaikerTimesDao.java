@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.DataBases;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.database.Cursor;
 /**
  * Created by Pitsoker on 23/10/2015.
  */
-public class WaikerTimesDao extends DAOBase{
+public class WaikerTimesDao extends DAOBase {
 
     public static final String TABLE_NAME = "WaikerTimes";
     public static final String ID = "id";

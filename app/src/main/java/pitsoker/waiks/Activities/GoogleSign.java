@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.Activities;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -25,7 +25,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Calendar;
+
+import pitsoker.waiks.DataBases.FirstTimeIdentifierDao;
+import pitsoker.waiks.R;
 
 
 /**

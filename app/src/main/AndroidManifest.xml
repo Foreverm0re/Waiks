@@ -19,7 +19,7 @@
         android:theme="@style/Theme.Waiks">
 
         <activity
-            android:name=".MainWaiks"
+            android:name=".Activities.MainWaiks"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,44 +29,44 @@
         </activity>
 
         <activity
-            android:name=".WaiksOptions"
+            android:name=".Activities.WaiksOptions"
             android:label="@string/MyOptions" >
         </activity>
 
         <activity
-            android:name=".WaiksCalendar"
+            android:name=".Activities.WaiksCalendar"
             android:label="@string/Calendar" >
         </activity>
 
         <activity
-            android:name=".WaiksSetOption"
+            android:name=".Activities.WaiksSetOption"
             android:label="@string/setoption" >
         </activity>
 
         <activity
-            android:name=".GoogleSign"
+            android:name=".Activities.GoogleSign"
             android:label="@string/google" >
         </activity>
 
         <activity
-            android:name=".WaiksAdress"
+            android:name=".Activities.WaiksAdress"
             android:label="@string/adress" >
         </activity>
 
         <activity
-            android:name=".WaiksSetEvent"
+            android:name=".Activities.WaiksSetEvent"
             android:label="@string/event" >
         </activity>
 
         <activity
-            android:name=".WaiksAddOption"
+            android:name=".Activities.WaiksAddOption"
             android:label="@string/addop" >
         </activity>
 
-        <receiver android:name=".AlarmReceiver"/>
-        <service android:name=".SchedulingService" />
+        <receiver android:name=".UtilityClasses.AlarmReceiver"/>
+        <service android:name=".UtilityClasses.SchedulingService" />
 
-        <activity android:name=".WaiksAlarm"
+        <activity android:name=".Activities.WaiksAlarm"
             android:label="@string/waiksalarm"/>
 
     </application>

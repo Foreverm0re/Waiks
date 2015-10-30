@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.DataBases;
 
 /**
  * Created by Pitsoker on 06/10/2015.

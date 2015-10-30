@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.UtilityClasses;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import pitsoker.waiks.DataBases.Event;
+
 /**
- * Created by Pitsoker on 15/09/2015.
+ * Agenda's events retrieving class
  */
 public class Utility {
 
 
+        //load the event retrieved in a arraylist of Event
         public static ArrayList<Event> readCalendarEvent(Context context) {
             ArrayList<Event> allEvent = new ArrayList<Event>();
 

@@ -1,13 +1,16 @@
-package pitsoker.waiks;
+package pitsoker.waiks.DataBases;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import pitsoker.waiks.DataBases.DAOBase;
+import pitsoker.waiks.DataBases.ExtraOption;
+
 /**
  * Created by Pitsoker on 12/10/2015.
  */
-public class XoptionDAO extends DAOBase{
+public class XoptionDAO extends DAOBase {
     public static final String TABLE_NAME = "Xoption";
     public static final String ID = "id";
     public static final String KEY = "key";

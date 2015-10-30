@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.UtilityClasses;
 
 import android.annotation.TargetApi;
 import android.content.Context;

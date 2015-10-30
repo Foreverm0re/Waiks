@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +23,14 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Locale;
+
+import pitsoker.waiks.DataBases.Data;
+import pitsoker.waiks.DataBases.EvActivationDAO;
+import pitsoker.waiks.DataBases.Event;
+import pitsoker.waiks.DataBases.WaikerTimesDao;
+import pitsoker.waiks.R;
+import pitsoker.waiks.UtilityClasses.TestButton;
+import pitsoker.waiks.UtilityClasses.Utility;
 
 /**
  * Created by Pitsoker on 02/09/2015.
@@ -77,6 +84,7 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
         setGridCellAdapterToDate(week, month, year);
     }
 
+    // update the custom adapter
     private void setGridCellAdapterToDate(int week, int month, int year) {
         Calendar calg = new GregorianCalendar(year, month, 1);
         adapter = new Calendrier(getApplicationContext(), R.id.calendar_day_gridcell, week, month, year);
@@ -85,13 +93,6 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
         currentWeek.setText("Week " + week);
         adapter.notifyDataSetChanged();
         calendarView.setAdapter(adapter);
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == code) {
-        }
-
-
     }
 
     @Override
@@ -149,6 +150,8 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    // the adapter class displaying the calendar days
     class Calendrier extends BaseAdapter implements View.OnClickListener {
         private Context context;
 
@@ -156,7 +159,6 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
         private Event[] ev;
         private int week, month, year;
         private int daysInMonth;
-        private int daysInWeek;
         private int currentDayOfMonth;
         private int currentWeekDay;
         Button gridcell;
@@ -177,8 +179,8 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
             currentWeekDay = calendar.get(Calendar.DAY_OF_WEEK);
 
             daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-            daysInWeek = 7;
 
+            // Load the events from personnal agena into the calendar
             ArrayList<Event> tabOfEvent = Utility.readCalendarEvent(context);
             this.ev = new Event[daysInMonth];
 
@@ -194,6 +196,7 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
                         dayDone.put(d, true);
                 }
             }
+            //when no event occurs, we create a "no event" event to fill the day row
             for (int i = 0; i < daysInMonth; i++) {
                 if (ev[i] == null) {
                     ev[i] = new Event("No event", new Date(year, month, i + 1));
@@ -223,6 +226,7 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
             return position;
         }
 
+        //skeleton of each row of the listView
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             int waikerHour =0;
@@ -260,18 +264,23 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
 
             ((TestButton) activation).setDateCode(calp);
 
+            //when no event occur the specific day
             if(event.getNameOfEvent().equals("No event") == true){
                 activation.setText("N/A");
                 activation.setEnabled(false);
             }
             else{
-                num_events_per_day.setText(event.getNameOfEvent() + " - " + getHourTime(event.getDateOfEvent()));
+                num_events_per_day.setText(event.getNameOfEvent() + " - " + getHourTime(event.getDateOfEvent()));//display event info
                 SimpleDateFormat formatter=new SimpleDateFormat("dd-MMM-yyyy");
                 String currentDate = formatter.format(calp.getTime());
                 String active = eaDao.selectActive(currentDate);
+
+                //enable the "activate event"  button
                 activation.setText("Not set");
                 activation.setEnabled(true);
                 activation.setOnClickListener(this);
+
+                //check if event is set
                 if(Data.dt.containsKey(currentDate)) {
                     if (Data.dt.get(currentDate) || active.equals("yes")) {
                         activation.setText("Set !");
@@ -279,17 +288,15 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
                 }
                 else if(active.equals("yes")){
                     activation.setText("Set !");
+
+                    //load the waiker time set in the SetEvent activity
                     waikerHour = Integer.parseInt(wtDao.selectWaikerTimeHour(currentDate));
                     waikerMinute = Integer.parseInt(wtDao.selectWaikerTimeMinute(currentDate));
-                    num_events_per_day.setText(event.getNameOfEvent() + " - " + getHourTime(event.getDateOfEvent()) + " - " + "set for " + waikerHour + "h" + waikerMinute);
+                    num_events_per_day.setText(event.getNameOfEvent() + " - " + getHourTime(event.getDateOfEvent()) + " - " + "set for " + waikerHour + "h" + waikerMinute);//display event info and waiker time
                 }
-                //if(isPassed(d)){
-                //    activation.setText("Passed");
-                //    activation.setEnabled(false);
-                //}
 
             }
-
+            //show current day
             if (cal.get(Calendar.MONTH) == this.month && cal.get(Calendar.YEAR) == this.year && cal.get(Calendar.DAY_OF_MONTH) == currentDayOfMonth) {
                 gridcell.setTextColor(Color.BLUE);
             } else {
@@ -311,7 +318,7 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
         @Override
         public void onClick(View view) {
             //VERS LA PAGE DE CREATION D EVENEMENT
-            Data.actualCode = ((TestButton) view).getDateCode();
+            Data.actualCode = ((TestButton) view).getDateCode();//key used in the Event activation database
             Intent i = new Intent(WaiksCalendar.this, WaiksSetEvent.class);
             startActivityForResult(i, code);
 
@@ -329,12 +336,5 @@ public class WaiksCalendar extends AppCompatActivity implements View.OnClickList
             return dateFormat.format(date);
         }
 
-        private boolean isPassed(Date d){
-            Calendar cl = Calendar.getInstance();
-            if(d.getMonth() < cl.get(Calendar.MONTH) || d.getDay() < cl.get(Calendar.DAY_OF_MONTH)){
-                return true;
-            }
-            return false;
-        }
     }
 }

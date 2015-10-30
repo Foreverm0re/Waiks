@@ -1,10 +1,12 @@
-package pitsoker.waiks;
+package pitsoker.waiks.UtilityClasses;
 
 import android.content.Context;
 import android.media.MediaPlayer;
 
+import pitsoker.waiks.R;
+
 /**
- * Created by Pitsoker on 21/10/2015.
+ * class managing the sound played for the alarm
  */
 public class MediaPlayerService {
     public static MediaPlayer mMediaPlayer = null;

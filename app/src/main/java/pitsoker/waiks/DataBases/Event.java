@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.DataBases;
 
 import java.util.Date;
 

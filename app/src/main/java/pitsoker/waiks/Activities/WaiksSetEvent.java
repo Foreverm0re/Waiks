@@ -1,10 +1,7 @@
-package pitsoker.waiks;
+package pitsoker.waiks.Activities;
 
 import android.content.Intent;
-import android.graphics.LinearGradient;
 import android.os.Bundle;
-import android.provider.AlarmClock;
-import android.provider.ContactsContract;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +18,19 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Locale;
+
+import pitsoker.waiks.UtilityClasses.AlarmReceiver;
+import pitsoker.waiks.DataBases.Data;
+import pitsoker.waiks.DataBases.DatabaseHandler;
+import pitsoker.waiks.DataBases.EvActivation;
+import pitsoker.waiks.DataBases.EvActivationDAO;
+import pitsoker.waiks.DataBases.GenderDAO;
+import pitsoker.waiks.DataBases.TimeOptionDAO;
+import pitsoker.waiks.DataBases.WaikerTimes;
+import pitsoker.waiks.DataBases.WaikerTimesDao;
+import pitsoker.waiks.DataBases.XoptionDAO;
+import pitsoker.waiks.R;
 
 /**
  * Created by Pitsoker on 22/09/2015.
@@ -118,12 +125,11 @@ public class WaiksSetEvent extends AppCompatActivity implements ActionBar.TabLis
         him.setVisibility(View.GONE);
         her.setVisibility(View.GONE);
 
+       // showing custom options
         XoptionDAO xoDAO = new XoptionDAO(getApplicationContext());
         Data.numberOfXoption = Integer.parseInt(xoDAO.selectNumberOfXoption());
         i = Data.numberOfXoption;
-
         Xoption = new ArrayList<CheckBox>();
-
         if (i != 0) {
             for (i = 1; i < Data.numberOfXoption + 1; i++) {
                 Xoption.add(new CheckBox(this));
@@ -136,6 +142,7 @@ public class WaiksSetEvent extends AppCompatActivity implements ActionBar.TabLis
             }
         }
 
+        //make custom options working like default ones
         for(j = 0; j < Xoption.size(); j++) {
             Xoption.get(j).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -169,11 +176,12 @@ public class WaiksSetEvent extends AppCompatActivity implements ActionBar.TabLis
         String active = eaDAO.selectActive(currentDate);
         gender = daoG.selectSex(1);
 
+        //show "deactivate" button if event is set
         if(active.equals("yes")){
             deactivateEv.setVisibility(View.VISIBLE);
             activateEv.setVisibility(View.GONE);
         }
-
+        // load the HUD when event is not set yet and according to user gender
         else {
 
             deactivateEv.setVisibility(View.GONE);
@@ -192,6 +200,7 @@ public class WaiksSetEvent extends AppCompatActivity implements ActionBar.TabLis
         }
     }
 
+    //add time to total
     public void addTime(int heure, int minute){
         totHour = totHour + heure;
         totMin = totMin + minute;
@@ -203,6 +212,7 @@ public class WaiksSetEvent extends AppCompatActivity implements ActionBar.TabLis
         }
     }
 
+    //retrieve time to total
     public void removeTime(int heure, int minute){
         totHour = totHour - heure;
         int rest = 0;
@@ -241,7 +251,7 @@ public class WaiksSetEvent extends AppCompatActivity implements ActionBar.TabLis
         }
     }
 
-
+    // when an option is checked
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         DatabaseHandler dbh = new DatabaseHandler(getApplicationContext(), null, null, 1);
@@ -385,12 +395,16 @@ public class WaiksSetEvent extends AppCompatActivity implements ActionBar.TabLis
     public void onClick(View v) {
         EvActivationDAO eaDao = new EvActivationDAO(getApplicationContext());
         WaikerTimesDao wtDao = new WaikerTimesDao(this);
+       //the event is set
         if(v == activate){
+            //add status of the event (here = activated) the database
             Data.dt.put(Data.actualCode, true);
             SimpleDateFormat formatter=new SimpleDateFormat("dd-MMM-yyyy");
             String currentDate = formatter.format(Data.actualCode.getTime());
             EvActivation ea = new EvActivation("yes", currentDate);
             eaDao.ajouter(ea);
+
+            //set the Date used to create the alarm
             dateOfEvent.set(Data.actualCode.get(Calendar.YEAR), Data.actualCode.get(Calendar.MONTH), Data.actualCode.get(Calendar.DAY_OF_MONTH), Data.actualCode.get(Calendar.HOUR) - totHour, Data.actualCode.get(Calendar.MINUTE) - totMin);
             alarm.setAlarm(getApplicationContext(), dateOfEvent);
             WaikerTimes wt = new WaikerTimes(currentDate, dateOfEvent.get(Calendar.HOUR), dateOfEvent.get(Calendar.MINUTE));
@@ -399,6 +413,7 @@ public class WaiksSetEvent extends AppCompatActivity implements ActionBar.TabLis
             finish();
         }
         if(v == deactivate){
+            //event deactivation procedure
             SimpleDateFormat formatter=new SimpleDateFormat("dd-MMM-yyyy");
             String currentDate = formatter.format(Data.actualCode.getTime());
             eaDao.supprimer(currentDate);

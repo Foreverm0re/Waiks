@@ -1,7 +1,6 @@
-package pitsoker.waiks;
+package pitsoker.waiks.Activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
@@ -14,6 +13,16 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
+
+import pitsoker.waiks.DataBases.Data;
+import pitsoker.waiks.DataBases.DatabaseHandler;
+import pitsoker.waiks.DataBases.FirstTimeIdentifierDao;
+import pitsoker.waiks.DataBases.Gender;
+import pitsoker.waiks.DataBases.GenderDAO;
+import pitsoker.waiks.DataBases.TimeOption;
+import pitsoker.waiks.DataBases.TimeOptionDAO;
+import pitsoker.waiks.DataBases.XoptionDAO;
+import pitsoker.waiks.R;
 
 
 /**
@@ -101,6 +110,7 @@ public class WaiksOptions extends AppCompatActivity implements ActionBar.TabList
         suit2.setOnClickListener(this);
 
 
+        // running only the first time the application is launched
         FirstTimeIdentifierDao ftiDao = new FirstTimeIdentifierDao(this);
         String identifier = ftiDao.selectIdentifier(1);
         if (identifier.equals("first")) {
@@ -132,6 +142,7 @@ public class WaiksOptions extends AppCompatActivity implements ActionBar.TabList
             dao.ajouter(to7);
             dao.ajouter(to8);
             dao.ajouter(to9);
+            //END
         }
     }
 
@@ -146,10 +157,9 @@ public class WaiksOptions extends AppCompatActivity implements ActionBar.TabList
         updateHud(gend);
         update(dao);
 
+        //Creating custom(user made) options
         XoptionDAO XoDAO = new XoptionDAO(getApplicationContext());
         Data.numberOfXoption = Integer.parseInt(XoDAO.selectNumberOfXoption());
-
-
         if(Data.numberOfXoption != 0) {
             for (int i = 1; i < Data.numberOfXoption + 1; i++) {
                 TextView Xoption = new TextView(this);
@@ -364,6 +374,7 @@ public class WaiksOptions extends AppCompatActivity implements ActionBar.TabList
         }
     }
 
+    //method updating the options timing
     public void update(TimeOptionDAO dao){
 
         Data.heure[Data.BREAKFAST] = Integer.parseInt(dao.selectHour(code0));
@@ -399,6 +410,7 @@ public class WaiksOptions extends AppCompatActivity implements ActionBar.TabList
         changeView(Data.heure[Data.SUIT2], Data.minute[Data.SUIT2], suit2, "suit");
     }
 
+    //updating the hud according to user gender
     public void updateHud(String gend){
 
         if(gend.equals("female")) {

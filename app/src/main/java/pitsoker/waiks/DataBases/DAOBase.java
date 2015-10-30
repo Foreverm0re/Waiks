@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.DataBases;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

@@ -1,10 +1,13 @@
-package pitsoker.waiks;
+package pitsoker.waiks.Activities;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import pitsoker.waiks.UtilityClasses.AlarmReceiver;
+import pitsoker.waiks.UtilityClasses.MediaPlayerService;
+import pitsoker.waiks.R;
 
 /**
  * Created by Pitsoker on 21/10/2015.
@@ -23,12 +26,14 @@ public class WaiksAlarm extends AppCompatActivity implements View.OnClickListene
         stop.setOnClickListener(this);
     }
 
+    //lauching alarm
     @Override
     protected void onStart() {
         super.onStart();
         mps.onStartCommand(this);
     }
 
+    //stopping the alarm
     @Override
     public void onClick(View v) {
         alarm.cancelAlarm(this);

@@ -1,11 +1,12 @@
-package pitsoker.waiks;
+package pitsoker.waiks.UtilityClasses;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.widget.Toast;
+
+import pitsoker.waiks.Activities.WaiksAlarm;
 
 /**
- * Created by Pitsoker on 21/10/2015.
+ * Alarm Service
  */
 public class SchedulingService extends IntentService{
     public SchedulingService() {

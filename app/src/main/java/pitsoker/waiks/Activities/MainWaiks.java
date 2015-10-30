@@ -1,4 +1,4 @@
-package pitsoker.waiks;
+package pitsoker.waiks.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+
+import pitsoker.waiks.DataBases.FirstTimeIdentifier;
+import pitsoker.waiks.DataBases.FirstTimeIdentifierDao;
+import pitsoker.waiks.R;
 
 /*
 classe gerant l ecran d accueil
@@ -28,6 +31,7 @@ public class MainWaiks extends AppCompatActivity implements View.OnClickListener
         connection = (Button) findViewById(R.id.connexion);
         connection.setOnClickListener(this);
 
+        //Running the first time the app is launched
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         if (settings.getBoolean("my_first_time", true)) {
             System.out.println("first tiem");
@@ -51,8 +55,6 @@ public class MainWaiks extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-
-
         if(v == connection) {
             Intent i = new Intent(MainWaiks.this, GoogleSign.class);
             startActivity(i);
