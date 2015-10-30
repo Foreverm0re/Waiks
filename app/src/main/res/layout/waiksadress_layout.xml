@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/transport"
+        android:text="@string/transport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/transp_selected"
+        android:layout_alignEnd="@+id/transp_selected" />
+
+    <Button
+        android:id="@+id/voiture"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="@string/voiture"
+        android:layout_alignTop="@+id/metro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/metro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/metro"
+        android:textSize="12sp"
+        android:layout_below="@+id/transport"
+        android:layout_toRightOf="@+id/voiture"
+        android:layout_toEndOf="@+id/voiture" />
+    <Button
+        android:id="@+id/pied"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="@string/pied"
+        android:layout_alignTop="@+id/metro"
+        android:layout_toRightOf="@+id/metro"
+        android:layout_toEndOf="@+id/metro" />
+
+    <Button
+        android:id="@+id/velo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="@string/velo"
+        android:layout_below="@+id/transport"
+        android:layout_toRightOf="@+id/pied"
+        android:layout_toEndOf="@+id/pied" />
+
+    <TextView
+        android:id="@+id/transp_selected"
+        android:text="@string/transp_selected"
+        android:textSize="17sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/metro"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/adresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adresse"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/transp_selected"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/saisie"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_below="@+id/adresse"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

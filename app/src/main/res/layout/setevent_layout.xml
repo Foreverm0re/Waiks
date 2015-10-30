@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:id="@+id/activateEv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/check"
+            android:id="@+id/checktext"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:id="@+id/gene"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.15">
+
+
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shower"
+            android:id="@+id/shower"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/breakfast"
+        android:id="@+id/breakfast"
+        android:layout_below="@+id/checktext"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Xop"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_weight="0.17"></LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/him"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hairdressing"
+        android:id="@+id/hairdressing2" />
+
+
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shaving"
+            android:id="@+id/shaving"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/hairdressing2"
+            android:layout_toEndOf="@+id/hairdressing2" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/suit"
+            android:id="@+id/suit2"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/shaving"
+            android:layout_toEndOf="@+id/shaving" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/her"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hairdressing"
+            android:id="@+id/hairdressing"
+         />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shampoo"
+            android:id="@+id/shampoo"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/depilation"
+            android:layout_toEndOf="@+id/depilation" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/depilation"
+            android:id="@+id/depilation"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/hairdressing"
+            android:layout_toEndOf="@+id/hairdressing" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/suit"
+            android:id="@+id/suit"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/shampoo"
+            android:layout_toEndOf="@+id/shampoo" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.73">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/destination_time"
+        android:id="@+id/destination"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0h 0min"
+        android:id="@+id/time"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/destination"
+        android:layout_toRightOf="@+id/activate"
+        android:layout_toEndOf="@+id/activate"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/total"
+        android:id="@+id/total"
+        android:layout_alignBaseline="@+id/totaltime"
+        android:layout_alignBottom="@+id/totaltime"
+        android:layout_alignRight="@+id/destination"
+        android:layout_alignEnd="@+id/destination" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0h 0min"
+        android:id="@+id/totaltime"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/time"
+        android:layout_alignStart="@+id/time" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activate"
+        android:id="@+id/activate"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/totaltime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp" />
+
+    </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/deactivateEv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deactivate"
+            android:id="@+id/deactivate"
+            android:layout_marginBottom="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</LinearLayout>

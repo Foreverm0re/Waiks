@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Waiks</string>
+    <string name="MyOptions">My options</string>
+    <string name="Calendar">My calendar</string>
+    <string name="setoption">Set my option</string>
+    <string name="Timing">Set the timing</string>
+    <string name="google">Connect with google </string>
+    <string name="adress">My adress </string>
+    <string name="event">Set my event</string>
+    <string name="addop">Create my option</string>
+    <string name="waiksalarm">Waiker</string>
+
+    <string name="connexion">Connection</string>
+    <string name="gender">Please select your sex</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="welcome">Welcome to Waiks !</string>
+    <string name="transport">choose your mean of transport</string>
+    <string name="transp_selected">No transport selected</string>
+    <string name="accueil">Accueil</string>
+    <string name="voiture">Car</string>
+    <string name="metro">Underground</string>
+    <string name="pied">Foot</string>
+    <string name="velo">Bicylcle</string>
+    <string name="adresse">Type your adress</string>
+    <string name="next">next</string>
+    <string name="breakfast">breakfast</string>
+    <string name="shower">shower</string>
+    <string name="hairdressing">Hairdressing</string>
+    <string name="makeUp">Make-up</string>
+    <string name="shampoo">Shampoo</string>
+    <string name="depilation">Depilation</string>
+    <string name="suit">Suit</string>
+    <string name="shaving">Shaving</string>
+    <string name="addOption">add an Option</string>
+    <string name="repetition">repetition</string>
+    <string name="timing">timing</string>
+    <string name="check">Select your options</string>
+    <string name="destination_time">destination time:</string>
+    <string name="total">time spent for options</string>
+    <string name="activate">Activate event</string>
+    <string name="deactivate">Deactivate event</string>
+    <string name="choose_name">Choose option name</string>
+    <string name="choosetiming">Entry option timing</string>
+    <string name="heure">hour</string>
+    <string name="minute">min</string>
+
+
+    <string name="signed_in_fmt">connected with</string>
+    <string name="error_null_person">unknown account</string>
+    <string name="signed_in_err">connection error</string>
+    <string name="signed_out">signed out</string>
+    <string name="play_services_error_fmt">error </string>
+    <string name="signing_in">signing in</string>
+    <string name="not_logged">Not logged in</string>
+</resources>

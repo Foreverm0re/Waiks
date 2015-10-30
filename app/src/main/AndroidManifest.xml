@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pitsoker.waiks">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+
+    <application
+
+        android:allowBackup="true"
+        android:icon="@drawable/logo_application"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Waiks">
+
+        <activity
+            android:name=".MainWaiks"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".WaiksOptions"
+            android:label="@string/MyOptions" >
+        </activity>
+
+        <activity
+            android:name=".WaiksCalendar"
+            android:label="@string/Calendar" >
+        </activity>
+
+        <activity
+            android:name=".WaiksSetOption"
+            android:label="@string/setoption" >
+        </activity>
+
+        <activity
+            android:name=".GoogleSign"
+            android:label="@string/google" >
+        </activity>
+
+        <activity
+            android:name=".WaiksAdress"
+            android:label="@string/adress" >
+        </activity>
+
+        <activity
+            android:name=".WaiksSetEvent"
+            android:label="@string/event" >
+        </activity>
+
+        <activity
+            android:name=".WaiksAddOption"
+            android:label="@string/addop" >
+        </activity>
+
+        <receiver android:name=".AlarmReceiver"/>
+        <service android:name=".SchedulingService" />
+
+        <activity android:name=".WaiksAlarm"
+            android:label="@string/waiksalarm"/>
+
+    </application>
+
+</manifest>

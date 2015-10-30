@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/googlesign"
+        android:title="@string/google" />
+
+    <item
+        android:id="@+id/option"
+        android:title="@string/MyOptions" />
+
+    <item
+        android:id="@+id/adress"
+        android:title="@string/adress" />
+
+
+</menu>

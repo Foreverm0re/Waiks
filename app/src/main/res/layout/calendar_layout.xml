@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="107dp">
+        <Button
+            android:id="@+id/MonthYear"
+            android:paddingRight="20dip"
+            android:paddingLeft="20dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+        </Button>
+
+        <Button
+            android:id="@+id/previousWeek"
+            android:text="Prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/Week"
+            android:layout_toLeftOf="@+id/Week"
+            android:layout_toStartOf="@+id/Week">
+
+        </Button>
+
+        <Button
+            android:id="@+id/nextWeek"
+            android:text="Next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/Week"
+            android:layout_toRightOf="@+id/Week"
+            android:layout_toEndOf="@+id/Week">
+
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Week"
+            android:layout_below="@+id/MonthYear"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/calendar"
+        android:scrollbars="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+
+</LinearLayout>

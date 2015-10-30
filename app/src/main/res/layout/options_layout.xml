@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+<TableLayout
+    android:id="@+id/genLayout"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1">
+
+    <TextView
+        android:text="General"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/police"
+        />
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+
+    <TableRow>
+        <TextView
+            android:id="@+id/breakfast"
+            android:text="@string/breakfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/shower"
+            android:text="@string/shower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/herLayout"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For her"
+        android:layout_marginTop="10dip"
+        style="@style/police"
+        />
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+
+    <TableRow>
+        <TextView
+            android:id="@+id/hairdressing"
+            android:text="@string/hairdressing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/Makeup"
+            android:text="@string/makeUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/Shampoo"
+            android:text="@string/shampoo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/depilation"
+            android:text="@string/depilation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/suit"
+            android:text="@string/suit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/himLayout"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For him"
+        android:layout_marginTop="20dip"
+        style="@style/police"/>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+
+    <TableRow>
+        <TextView
+            android:id="@+id/hairdressing2"
+            android:text="@string/hairdressing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/Shaving"
+            android:text="@string/shaving"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/suit2"
+            android:text="@string/suit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
+
+
+
+</TableLayout>
+
+    <RelativeLayout
+        android:id="@+id/genderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.50">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/gender"
+        android:id="@+id/gender"
+        android:layout_above="@+id/male"
+        android:layout_centerHorizontal="true" />
+
+        <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/male"
+        android:id="@+id/male"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/gender"
+            android:layout_alignStart="@+id/gender" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female"
+            android:id="@+id/female"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/gender"
+            android:layout_alignRight="@+id/gender"
+            android:layout_alignEnd="@+id/gender" />
+
+    </RelativeLayout>
+
+</LinearLayout>
